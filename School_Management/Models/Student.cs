@@ -11,7 +11,6 @@
         public string ContactNumber { get; set; }
 
         // Navigation property
-
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
     }

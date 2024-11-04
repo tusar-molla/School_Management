@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentCreate">Add Student</a>
+                        </li>
                     </ul>
 
                     <ul class="navbar-nav ml-auto">
@@ -74,6 +77,19 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         };
+    </script>
+    <script>
+        $(document).ready(function () {
+            var successMessage = '@TempData["SuccessMessage"]';
+            var errorMessage = '@TempData["ErrorMessage"]';
+
+            if (successMessage) {
+                toastr.success(successMessage);
+            }
+            if (errorMessage) {
+                toastr.error(errorMessage);
+            }
+        });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
