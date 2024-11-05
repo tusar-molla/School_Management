@@ -32,14 +32,14 @@ namespace School_Management.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult StudentCreate()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> StudentCreate(Student model)
         {
             try
@@ -94,5 +94,41 @@ namespace School_Management.Controllers
             }
             return View(student);
         }
-     }
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> StdDelete(int? id)
+        {
+            if (id == null) return NotFound();
+            var student = await _context.Students.FindAsync(id);
+            if (student == null) return NotFound();
+            return View(student);
+        }
+
+        [HttpPost, ActionName("StdDelete")]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> StdDeleteConfirmed(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+
+            if (student == null)
+            {
+                TempData["ErrorMessage"] = "Record not found.";
+                return RedirectToAction(nameof(Studentlist));
+            }
+
+            try
+            {
+                _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Record deleted successfully.";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error deleting record: " + ex.Message;
+            }
+
+            return RedirectToAction(nameof(Studentlist));
+        }
+    }
 }

@@ -1,0 +1,14 @@
+﻿@model Student
+
+<h2>Delete Student</h2>
+
+<p>Are you sure you want to delete this student?</p>
+
+<div>
+    <h4>@Model.FirstName @Model.LastName</h4>
+    <form asp-action="StdDelete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Remove</button>
+        <a asp-action="Studentlist" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
