@@ -1,0 +1,37 @@
+﻿@model School_Management.Models.Class
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Create Class</h2>
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="ClassCreate">
+                <div class="mb-3">
+                    <label asp-for="ClassName" class="form-label fw-bold">Class Name</label>
+                    <input asp-for="ClassName" class="form-control" placeholder="Enter class name" />
+                    <span asp-validation-for="ClassName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Section" class="form-label fw-bold">Section</label>
+                    <input asp-for="Section" class="form-control" placeholder="Enter section (e.g., A, B, etc.)" />
+                    <span asp-validation-for="Section" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="TeacherId" class="form-label fw-bold">Assign Teacher</label>
+                    <select asp-for="TeacherId" asp-items="ViewBag.TeacherList" class="form-select">
+                        <option value="">-- Select Teacher --</option>
+                    </select>
+                    <span asp-validation-for="TeacherId" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-save me-2"></i>Save
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary px-4">
+                        <i class="bi bi-arrow-left-circle me-2"></i>Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

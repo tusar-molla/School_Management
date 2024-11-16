@@ -1,0 +1,20 @@
+﻿@model School_Management.Models.Class
+
+<h2>Class Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Class Name</th>
+        <td>@Model.ClassName</td>
+    </tr>
+    <tr>
+        <th>Section</th>
+        <td>@Model.Section</td>
+    </tr>
+    <tr>
+        <th>Teacher</th>
+        <td>@Model.Teacher?.FirstName</td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

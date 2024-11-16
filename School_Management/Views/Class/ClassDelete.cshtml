@@ -1,0 +1,26 @@
+﻿@model School_Management.Models.Class
+
+<h2>Delete Class</h2>
+
+<p>Are you sure you want to delete this class?</p>
+
+<table class="table">
+    <tr>
+        <th>Class Name</th>
+        <td>@Model.ClassName</td>
+    </tr>
+    <tr>
+        <th>Section</th>
+        <td>@Model.Section</td>
+    </tr>
+    <tr>
+        <th>Teacher</th>
+        <td>@Model.Teacher?.FirstName</td>
+    </tr>
+</table>
+
+<form asp-action="ClassDeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
