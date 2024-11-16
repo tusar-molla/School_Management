@@ -1,0 +1,55 @@
+﻿@model Teacher
+
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header" style="background-color= #d4edda; color= #155724; border-color= #c3e6cb;">
+            <h4 class="mb-0">Add Teacher</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="TeacherCreate">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="FirstName" class="form-label fw-semibold"></label>
+                        <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="LastName" class="form-label fw-semibold"></label>
+                        <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Qualification" class="form-label fw-semibold"></label>
+                        <input asp-for="Qualification" class="form-control" placeholder="Enter contact number" />
+                        <span asp-validation-for="Qualification" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="SubjectSpecialization" class="form-label fw-semibold"></label>
+                        <input asp-for="SubjectSpecialization" class="form-control" />
+                        <span asp-validation-for="SubjectSpecialization" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ContactNumber" class="form-label fw-semibold"></label>
+                        <input asp-for="ContactNumber" class="form-control" />
+                        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Email" class="form-label fw-semibold"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter address" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary px-4 mt-3">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
