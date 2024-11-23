@@ -9,7 +9,7 @@
         public int TeacherId { get; set; }
 
         // navigation property
-        public Teacher Teacher { get; set; }
-        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public Teacher? Teacher { get; set; }
+        public ICollection<Enrollment>? Enrollments { get; set; } = new List<Enrollment>();
     }
 }

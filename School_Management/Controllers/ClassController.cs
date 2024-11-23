@@ -121,7 +121,7 @@ namespace School_Management.Controllers
                 TempData["Error"] = $"An error occurred: {ex.Message}";
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ClassList));
         }
 
         public async Task<IActionResult> ClassDelete(int? id)

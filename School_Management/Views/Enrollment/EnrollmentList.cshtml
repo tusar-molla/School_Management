@@ -1,0 +1,32 @@
+﻿@model IEnumerable<School_Management.Models.Enrollment>
+
+<h2>Enrollments</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Class</th>
+            <th>Subject</th>
+            <th>Enrollment Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.FirstName @item.Student.LastName</td>
+                <td>@item.Class.ClassName</td>
+                <td>@item.Subject.SubjectName</td>
+                <td>@item.EnrollmentDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Enroll New Student</a>
