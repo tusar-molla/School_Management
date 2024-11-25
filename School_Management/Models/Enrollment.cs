@@ -12,9 +12,9 @@
         // Properties
         public DateTime EnrollmentDate { get; set; }
 
-        public Student Student { get; set; }
-        public Class Class { get; set; }
-        public Subject Subject { get; set; }
+        public Student? Student { get; set; }
+        public Class? Class { get; set; }
+        public Subject? Subject { get; set; }
 
     }
 }

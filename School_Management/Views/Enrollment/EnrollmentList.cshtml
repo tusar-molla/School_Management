@@ -21,12 +21,12 @@
                 <td>@item.Subject.SubjectName</td>
                 <td>@item.EnrollmentDate.ToShortDateString()</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    <a asp-action="EnrollmentEdit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="EnrollmentDelete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a asp-action="Create" class="btn btn-success">Enroll New Student</a>
+<a asp-action="EnrollmentCreate" class="btn btn-success">Enroll New Student</a>

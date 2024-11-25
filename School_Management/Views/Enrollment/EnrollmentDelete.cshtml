@@ -1,0 +1,26 @@
+﻿@model School_Management.Models.Enrollment
+
+<h2>Delete Enrollment</h2>
+
+<div>
+    <h3>Are you sure you want to delete this enrollment?</h3>
+
+    <div class="form-group">
+        <strong>Student:</strong> @Model.Student.FirstName @Model.Student.LastName
+    </div>
+    <div class="form-group">
+        <strong>Class:</strong> @Model.Class.ClassName
+    </div>
+    <div class="form-group">
+        <strong>Subject:</strong> @Model.Subject.SubjectName
+    </div>
+    <div class="form-group">
+        <strong>Enrollment Date:</strong> @Model.EnrollmentDate.ToShortDateString()
+    </div>
+
+    <form asp-action="EnrollmentDelete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
